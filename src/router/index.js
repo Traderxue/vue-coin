@@ -30,6 +30,11 @@ const router = createRouter({
         }
       ]
     },
+    {
+      path:"/chart",
+      name:"chart",
+      component:()=>import("@/components/chart.vue")
+    }
   ]
 })
 
