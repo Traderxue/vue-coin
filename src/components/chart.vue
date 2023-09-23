@@ -20,25 +20,8 @@ const option = {
     }
   ]
 };
-const k_times = ref([])
-const k_price = ref([])
-const dataList  = ref([])
-const dealData = ()=>{
-        dataList.value.forEach(item => {
-        item.pop()
-        const firstElement = item.slice(0, 1);
-        k_price.value = item.slice(1);
-        k_times.value.push(firstElement)
-        console.log(k_price)
-        console.log(k_times)
-
-    });
-}
 
 onMounted(()=>{
-    myStore.getDateList()
-    dataList.value = myStore.dataList
-    dealData()
 })
 
 const timeData  = ref(['1分钟','5分钟','15分钟','1小时','4小时','1天'])

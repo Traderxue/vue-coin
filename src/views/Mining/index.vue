@@ -29,9 +29,10 @@ import {useRouter} from 'vue-router'
             <img src="@/assets/img/banner.png" alt="">
         </div>
         <div class="tab">
-            <span :class="currentIndex===index?'active':''" v-for="(item,index) in tabData" :key="index" @click="tabChange(index,item.path)">{{item.name}}</span>
+            <span :class="{ active: currentIndex === index }" v-for="(item,index) in tabData" :key="index" @click="tabChange(index,item.path)">{{item.name}}</span>
         </div>
-        <RouterView/>
+            <RouterView :key="$route.fullPath"/>
+        
     </div>
 </template>
 

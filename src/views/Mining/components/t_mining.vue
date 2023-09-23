@@ -25,6 +25,14 @@ const miningData = ref([
         u_price: "10000.00 USDT",
         income:"284163.62 USDT",
         incomeDc:"28652.15 DC"
+    },
+    {
+        name:"DC5级矿机",
+        time:"180天",
+        gh:"550.00",
+        u_price: "10000.00 USDT",
+        income:"284163.62 USDT",
+        incomeDc:"28652.15 DC"
     }
 ])
 </script>

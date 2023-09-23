@@ -41,9 +41,9 @@ const tabChange = (index,path)=>{
 </script>
 
 <template>
-    <router-view/>
+        <router-view :key="$route.fullPath"/>
     <div class="footer">
-        <div v-for="(item,index) in navData" :key="index" :class="currentIndex==index?'active':''" @click="tabChange(index,item.path)">
+        <div v-for="(item,index) in navData" :key="index" :class="{ active: currentIndex === index }" @click="tabChange(index,item.path)">
             <p class="material-symbols-outlined">{{item.className}}</p>
             <p class="p_font">{{item.name}}</p>
         </div>

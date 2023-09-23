@@ -26,7 +26,7 @@ const router = createRouter({
           children:[
             {
               path:"",
-              component:()=>import("@/views/Mining/components/my_mining.vue")
+              component:()=>import("@/views/Mining/components/t_mining.vue")
             },
             {
               path:"/my_mining",

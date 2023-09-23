@@ -1,3 +1,6 @@
+<script setup>
+import chart from "@/components/chart.vue"
+</script>
 <template>
-    <div>Market</div>
+    <chart/>
 </template>
