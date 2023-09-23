@@ -22,7 +22,21 @@ const router = createRouter({
         },
         {
           path:"/mining",
-          component:()=>import("@/views/Mining/index.vue")
+          component:()=>import("@/views/Mining/index.vue"),
+          children:[
+            {
+              path:"",
+              component:()=>import("@/views/Mining/components/my_mining.vue")
+            },
+            {
+              path:"/my_mining",
+              component:()=>import("@/views/Mining/components/my_mining.vue")
+            },
+            {
+              path:"/t_mining",
+              component:()=>import("@/views/Mining/components/t_mining.vue")
+            }
+          ]
         },
         {
           path:"/team",
