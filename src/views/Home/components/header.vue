@@ -15,9 +15,25 @@
                 <span class="material-symbols-outlined">
                 dark_mode
                 </span>
-                <span class="material-symbols-outlined">
+                <el-dropdown>
+                        <span class="material-symbols-outlined">
+                        language
+                        </span>
+                        <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item>
+                                中文简体
+                            </el-dropdown-item>
+                            <el-dropdown-item>
+                                中文繁体
+                            </el-dropdown-item>
+                            <el-dropdown-item>English</el-dropdown-item>
+                        </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                <!-- <span class="material-symbols-outlined">
                 language
-                </span>
+                </span> -->
             </div>
         </div>
 </template>
@@ -38,6 +54,10 @@
     }
     .title{
         text-align: center;
+    }
+    :focus {outline: 0;}
+    .el-dropdown{
+        cursor: pointer;
     }
 }
 </style>

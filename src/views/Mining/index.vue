@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref,computed } from "vue";
 import {useRouter} from 'vue-router'
 
     const router = useRouter()
@@ -14,10 +14,12 @@ import {useRouter} from 'vue-router'
         }
     ])
     const currentIndex = ref(0)
+
     const tabChange = (index,path)=>{
-        currentIndex.value = index
         router.push(path)
+        currentIndex.value = index
     }
+
 </script>
 <template>
     <div class="container">
@@ -29,10 +31,9 @@ import {useRouter} from 'vue-router'
             <img src="@/assets/img/banner.png" alt="">
         </div>
         <div class="tab">
-            <span :class="{ active: currentIndex === index }" v-for="(item,index) in tabData" :key="index" @click="tabChange(index,item.path)">{{item.name}}</span>
+            <span :class="currentIndex===index?'active':''" v-for="(item,index) in tabData" :key="index" @click="tabChange(index,item.path)">{{item.name}}</span>
         </div>
-            <RouterView :key="$route.fullPath"/>
-        
+        <RouterView :key="$route.fullPath"/>
     </div>
 </template>
 
