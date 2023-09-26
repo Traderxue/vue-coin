@@ -55,9 +55,9 @@ import { ref } from "vue"
         </div>
         <div class="rules">
             <p>规则：</p>
-            <p>团队总算力打到1GH为xxx</p>
-            <p>团队总算力打到1GH为xxx</p>
-            <p>团队总算力打到1GH为xxx</p>
+            <p>团队总算力达到1GH为xxx</p>
+            <p>团队总算力达到1GH为xxx</p>
+            <p>团队总算力达到1GH为xxx</p>
         </div>
     </div>
 </template>
@@ -128,7 +128,7 @@ import { ref } from "vue"
     .rules{
         margin-top: 15px;
         p{
-            padding: 2px 0px;
+            padding: 5px 0px;
         }
     }
 

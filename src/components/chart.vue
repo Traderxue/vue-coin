@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import {useMyStore} from "@/stores/myStore.js"
+import * as echarts from "echarts"
 
 const myStore = useMyStore()
+
 const option = {
   xAxis: {
-    data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']
+    data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27','2017-10-28', '2017-10-29', '2017-10-30']
   },
   yAxis: {},
   series: [
@@ -15,13 +17,39 @@ const option = {
         [20, 34, 10, 38],
         [40, 35, 30, 50],
         [31, 38, 33, 44],
-        [38, 15, 5, 42]
+        [38, 35, 15, 42],
+        [43, 48, 40, 50],
+        [52, 48, 48, 59],
+        [48, 68, 48, 69]
       ]
     }
-  ]
+  ],
+  dataZoom: [
+    {
+      type: 'inside',
+    },
+    {
+      show: false,
+      type: 'slider',
+      top: '90%',
+    }
+  ],
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross'
+    }
+  },
 };
 
+const main = ref(null)
 onMounted(()=>{
+    const myChart =echarts.init(main.value);
+    option && myChart.setOption(option) 
+
+    window.addEventListener('resize',()=>{
+        myChart.resize()
+    })
 })
 
 const timeData  = ref(['1分钟','5分钟','15分钟','1小时','4小时','1天'])
@@ -30,6 +58,8 @@ const currentIndex = ref(0)
 const tabChange = (index)=>{
     currentIndex.value = index
 }
+
+
 </script>
 
 <template>
@@ -59,6 +89,7 @@ const tabChange = (index)=>{
         <div class="time">
             <span :class="currentIndex===index?'active':''" v-for="(item,index) in timeData" :key="index"  @click="tabChange(index)">{{item}}</span>
         </div>
+        <div class="chart" ref="main" style="width: 100%;height: 520px;"></div>
     </div>
 </template>
 
