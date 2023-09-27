@@ -12,9 +12,24 @@ import trade from "./components/trade.vue"
             <Header/>
         </div>
         <div class="banner">
-            <img src="@/assets/img/banner.png" alt="">
+            <!-- <img src="@/assets/img/banner.png" alt=""> -->
+            <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+                <van-swipe-item>
+                    <img src="@/assets/img/banner.png" alt="">
+                </van-swipe-item>
+                <van-swipe-item>
+                    <img src="@/assets/img/banner.png" alt="">
+                </van-swipe-item>
+            </van-swipe>
+
         </div>
-        <Notice class="notice"/>
+        <!-- <Notice class="notice"/> -->
+        <van-notice-bar
+        class="notice"
+            left-icon="volume-o"
+            text="这是一条通知"
+            mode="closeable"
+            />
         <div class="topup">
             <div>
                 <img src="@/assets/img/topup1.png" alt="">
@@ -79,7 +94,7 @@ import trade from "./components/trade.vue"
     height: 100%;
     padding: 15px 15px 90px 15px;
     .banner{
-        margin: 15px 0px;
+        margin: 10px 0px 15px 0px;
         width: auto;
         height: 150px;
         border-radius: 5px;
