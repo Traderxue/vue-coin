@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from "vue";
+
+const percentage = ref(60)
+</script>
+
+
 <template>
     <div class="container">
         <div class="top">
@@ -11,7 +18,9 @@
             </div>
             <div class="improve">
                 <p>还有500点升级</p>
-                <span class="line"></span>                
+                <!-- <span class="line"></span>            -->
+            
+                <van-progress :pivot-text="percentage" color="#f2826a" :percentage="percentage" class="line" stroke-width="9px" :show-pivot="false"/>     
                 <div>
                     <span>vip0</span>                    
                     <span>vip1</span>
@@ -92,6 +101,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 .container{
     width: auto;
     height: auto;
@@ -151,10 +161,9 @@
             font-size: 14px;
             .line{
                 display: block;
-                width: 100%;
-                height: 8px;
                 background: #2351B8;
                 margin: 5px 0px;
+                overflow: hidden;
             }
             div{
                 display: flex;
