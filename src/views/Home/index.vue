@@ -27,7 +27,7 @@ import trade from "./components/trade.vue"
         <van-notice-bar
         class="notice"
             left-icon="volume-o"
-            text="这是一条通知"
+            :text="$t('home.notice_content')"
             mode="closeable"
             />
         <div class="topup">

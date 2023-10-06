@@ -1,3 +1,10 @@
+<script setup>
+import i18n from "@/i18n/index";
+
+const switchLanguage = (lang)=>{
+    i18n.global.locale = lang;
+}
+</script>
 <template>
         <div class="hedaer">
             <div class="left">
@@ -6,7 +13,7 @@
                 </span>
             </div>
             <div class="title">
-                <p>首页</p>
+                <p>{{$t('home.title')}}</p>
             </div>
             <div class="right">
                 <span class="material-symbols-outlined">
@@ -21,13 +28,15 @@
                         </span>
                         <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>
+                            <el-dropdown-item @click="switchLanguage('zh')">
                                 中文简体
                             </el-dropdown-item>
-                            <el-dropdown-item>
+                            <el-dropdown-item @click="switchLanguage('zh_hk')">
                                 中文繁体
                             </el-dropdown-item>
-                            <el-dropdown-item>English</el-dropdown-item>
+                            <el-dropdown-item @click="switchLanguage('en')">
+                                English
+                            </el-dropdown-item>
                         </el-dropdown-menu>
                         </template>
                     </el-dropdown>

@@ -24,7 +24,7 @@ import {useRouter} from 'vue-router'
 <template>
     <div class="container">
         <div class="header">
-            <p>矿机</p>
+            <p>{{$t('mining.title')}}</p>
             <span>矿机排行</span>
         </div>
         <div class="banner">
